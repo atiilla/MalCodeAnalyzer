@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 var argv = require('yargs/yargs')(process.argv.slice(2))
-    .usage(`
+    .usage(`\x1b[33m
     MalCode Analyzer for PHP v1.0.0
     ──▄──▄────▄▀
 ───▀▄─█─▄▀▄▄▄
@@ -12,7 +12,7 @@ var argv = require('yargs/yargs')(process.argv.slice(2))
 ──▄▄▀─█──▀▄▄
 
     Usage: $0 [options]
-    `)
+    \x1b[0m`)
     .example('$0 -d phpscript', 'Scan a directory')
     .alias('d', 'directory')
     .nargs('d', 1)
@@ -21,6 +21,8 @@ var argv = require('yargs/yargs')(process.argv.slice(2))
     .help('h')
     .alias('h', 'help')
     .argv;
+
+
 
 const dir = path.join(__dirname, argv.directory);
 //const files = fs.readdirSync(dir);
@@ -119,6 +121,11 @@ if (!fs.existsSync(dir)) {
     console.log("Directory does not exist");
     process.exit(1);
 } else {
+    console.log(`\x1b[36m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+| Directory: ${dir}                    |
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        \x1b[0m`);
     const files = fs.readdirSync(dir);
     const ReadFileAndCheck = (path, file) => {
         fs.readFile(path + "/" + file, "utf8", (err, data) => {
