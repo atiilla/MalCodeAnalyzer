@@ -19,4 +19,4 @@ $ node index.js <folder>
 ```
 
 ### Screenshot
-![bash](https://raw.githubusercontent.com/atiilla/MMalCodeAnalyzer/main/screenshot.png)
+![bash](https://raw.githubusercontent.com/atiilla/MalCodeAnalyzer/main/screenshot.png)
